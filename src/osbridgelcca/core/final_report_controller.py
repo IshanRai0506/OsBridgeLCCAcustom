@@ -1,4 +1,4 @@
-from core.calculation_service import calculate_all_modules
+from osbridgelcca.core.calculation_service import calculate_all_modules
 from core.report_generator_tex import generate_tex_report
 from db.database import Database
 
