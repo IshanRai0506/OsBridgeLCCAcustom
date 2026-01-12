@@ -1,0 +1,55 @@
+\newcommand{\TotalCost}{}
+\newcommand{\EnergyCost}{}
+\newcommand{\TransportCost}{}
+\newcommand{\MaterialCost}{}
+\newcommand{\WasteCost}{}
+\documentclass[a4paper,12pt]{article}
+
+% ---------------- Packages ----------------
+\usepackage[a4paper,margin=1in,headheight=32pt]{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+
+% ---------------- Logo path ----------------
+\graphicspath{{./}}
+
+% ---------------- Colors ----------------
+\definecolor{psgray}{RGB}{150,150,150}
+
+% ---------------- Header & Footer ----------------
+\pagestyle{fancy}
+\fancyhf{}
+
+% ---------- HEADER ----------
+\fancyhead[L]{%
+\begin{minipage}{\textwidth}
+\begin{tabular}{@{}l l@{}}
+    % --- Logo ---
+    \includegraphics[height=2.2cm]{Logo3.png}
+    &
+    % --- Text block (moved UP + reduced size) ---
+
+        
+            \raggedright
+            {\small\bfseries 3psLCCA}\\[-3pt]
+            {\scriptsize\textcolor{psgray}{Life Cycle Cost Assessment}}\\[-1pt]
+            {\scriptsize\textcolor{psgray}{Economic, Social and Environmental}}
+      
+\end{tabular}
+\end{minipage}
+}
+
+\renewcommand{\headrulewidth}{0.6pt}
+
+% ---------- FOOTER ----------
+\fancyfoot[L]{\scriptsize\textcolor{psgray}{3psLCCA Report}}
+\fancyfoot[R]{\scriptsize\textcolor{psgray}{\thepage}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% ---------------- Document ----------------
+\begin{document}
+
+\vspace*{6cm} % preview space
+
+\end{document}

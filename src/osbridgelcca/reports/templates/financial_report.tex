@@ -1,72 +1,55 @@
-\documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{xcolor}
+\newcommand{\TotalCost}{}
+\newcommand{\EnergyCost}{}
+\newcommand{\TransportCost}{}
+\newcommand{\MaterialCost}{}
+\newcommand{\WasteCost}{}
+\documentclass[a4paper,12pt]{article}
+
+% ---------------- Packages ----------------
+\usepackage[a4paper,margin=1in,headheight=32pt]{geometry}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
-\usepackage{tabularx}
+\usepackage{xcolor}
 
-% --- Colors ---
-\definecolor{osgreen}{HTML}{285A23}
+% ---------------- Logo path ----------------
+\graphicspath{{./}}
 
-% --- Header Style ---
+% ---------------- Colors ----------------
+\definecolor{psgray}{RGB}{150,150,150}
+
+% ---------------- Header & Footer ----------------
 \pagestyle{fancy}
 \fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
 
-% Logo at top-left
-\fancyhead[L]{\includegraphics[height=1.4cm]{<<LOGO_PATH>>}}
+% ---------- HEADER ----------
+\fancyhead[L]{%
+\begin{minipage}{\textwidth}
+\begin{tabular}{@{}l l@{}}
+    % --- Logo ---
+    \includegraphics[height=2.2cm]{Logo3.png}
+    &
+    % --- Text block (moved UP + reduced size) ---
 
-% Footer (copyright + page no.)
-\fancyfoot[C]{\textcolor{gray}{© OSBridge-LCCA – Page \thepage}}
+        
+            \raggedright
+            {\small\bfseries 3psLCCA}\\[-3pt]
+            {\scriptsize\textcolor{psgray}{Life Cycle Cost Assessment}}\\[-1pt]
+            {\scriptsize\textcolor{psgray}{Economic, Social and Environmental}}
+      
+\end{tabular}
+\end{minipage}
+}
 
+\renewcommand{\headrulewidth}{0.6pt}
+
+% ---------- FOOTER ----------
+\fancyfoot[L]{\scriptsize\textcolor{psgray}{3psLCCA Report}}
+\fancyfoot[R]{\scriptsize\textcolor{psgray}{\thepage}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% ---------------- Document ----------------
 \begin{document}
 
-% space so title does NOT overlap logo
-\vspace*{0.6cm}
-
-% Title centered
-\begin{center}
-\textbf{\fontsize{18pt}{20pt}\selectfont LIFE CYCLE COST ANALYSIS REPORT}
-\end{center}
-
-\vspace{0.4cm}
-
-% --- Banner ---
-\begin{center}
-\colorbox{osgreen}{%
-    \parbox{0.8\linewidth}{%
-        \centering
-        \textcolor{white}{\textbf{FINANCIAL REPORT}}
-    }
-}
-\end{center}
-
-\vspace{0.4cm}
-
-% ---- DATA TABLE CENTERED ----
-\begin{center}
-\begin{tabular}{|p{7cm}|p{5cm}|}
-\hline
-\textbf{Analysis Period} & <<Analysis Period>> years \\ \hline
-\textbf{Design Life} & <<Design Life>> years \\ \hline
-\textbf{Discount Rate (Inflation Adjusted)} & <<Discount Rate(Inflation Adjusted)>> \\ \hline
-\textbf{Inflation Rate} & <<Inflation Rate>> \\ \hline
-\textbf{Interest Rate} & <<Interest Rate>> \\ \hline
-\textbf{Investment Ratio} & <<Investment Ratio>> \\ \hline
-\textbf{Construction Duration} & <<Time for Construction of Base Project>> days \\ \hline
-\end{tabular}
-\end{center}
-
-\vspace{0.3cm}
-
-% --- Calculated Section ---
-\section*{Calculated Values}
-\textbf{Time-Cost:} <<TIME_COST>>
-
-\vfill
-
-{\centering
-\textit{Generated automatically by OSBridge-LCCA} \par
-}
+\vspace*{6cm} % preview space
 
 \end{document}
