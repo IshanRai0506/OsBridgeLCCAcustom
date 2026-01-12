@@ -1,23 +1,35 @@
-from osbridgelcca.core.calculation_service import calculate_all_modules
-from core.report_generator_tex import generate_tex_report
-from db.database import Database
+"""
+Final controller to generate LCCA report
+Triggered from ResultsWidget
+"""
+
+from osbridgelcca.core.bridge_lcc import BridgeLCC
+from osbridgelcca.core.report_generator_tex import generate_tex_report
+from osbridgelcca.core.input_data import InputData
+
 
 def generate_final_report():
-    db = Database()
+    """
+    1. Load saved input data
+    2. Run Bridge LCC calculations
+    3. Generate LaTeX PDF report
+    """
 
-    # 1. Fetch all module data from DB
-    energy_data = db.fetch("energy_module")
-    transport_data = db.fetch("transport_module")
-    material_data = db.fetch("material_module")
-    waste_data = db.fetch("waste_module")
+    # -----------------------------
+    # STEP 1: LOAD INPUT DATA
+    # -----------------------------
+    input_data = InputData()
+    input_data.load()   # uses your existing persistence logic
 
-    # 2. Run existing calculations (already written in your project)
-    results = calculate_all_modules(
-        energy_data=energy_data,
-        transport_data=transport_data,
-        material_data=material_data,
-        waste_data=waste_data
-    )
+    # -----------------------------
+    # STEP 2: RUN LCCA CALCULATION
+    # -----------------------------
+    lcc_engine = BridgeLCC(input_data)
+    results = lcc_engine.calculate_lcc()
 
-    # 3. Generate PDF using Overleaf LaTeX + TinyTeX
+    # -----------------------------
+    # STEP 3: GENERATE LATEX REPORT
+    # -----------------------------
     generate_tex_report(results)
+
+    print("✅ Final LCCA Report generated successfully")
