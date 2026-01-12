@@ -5,30 +5,27 @@ Triggered from ResultsWidget
 
 from osbridgelcca.core.bridge_lcc import BridgeLCC
 from osbridgelcca.core.report_generator_tex import generate_tex_report
-from osbridgelcca.core.input_data import InputData
+from osbridgelcca.core.input_data import Input
 
 
-def generate_final_report():
+def generate_final_report(project_input: Input):
     """
-    1. Load saved input data
-    2. Run Bridge LCC calculations
-    3. Generate LaTeX PDF report
+    Generate final LCCA report.
+
+    Parameters
+    ----------
+    project_input : Input
+        Fully constructed Input object from module widgets
     """
 
     # -----------------------------
-    # STEP 1: LOAD INPUT DATA
+    # STEP 1: RUN LCCA CALCULATION
     # -----------------------------
-    input_data = InputData()
-    input_data.load()   # uses your existing persistence logic
-
-    # -----------------------------
-    # STEP 2: RUN LCCA CALCULATION
-    # -----------------------------
-    lcc_engine = BridgeLCC(input_data)
+    lcc_engine = BridgeLCC(project_input)
     results = lcc_engine.calculate_lcc()
 
     # -----------------------------
-    # STEP 3: GENERATE LATEX REPORT
+    # STEP 2: GENERATE LATEX REPORT
     # -----------------------------
     generate_tex_report(results)
 
