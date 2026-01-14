@@ -1,3 +1,4 @@
+from osbridgelcca.core.final_report_controller import generate_final_report
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtCore import QCoreApplication, QSize, Qt, QPropertyAnimation, QEasingCurve, Signal
 from PySide6.QtGui import (QIcon)
@@ -491,27 +492,34 @@ class ResultsWidget(QWidget):
         buttons_layout = QHBoxLayout(buttons_widget)
         buttons_layout.setContentsMargins(20, 15, 20, 15)
         buttons_layout.setSpacing(15)
-        
-        # Back button
+     # Back button
         self.back_button = QPushButton("Back")
         self.back_button.setObjectName("bottom_nav_button")
         self.back_button.setFixedSize(80, 35)
         self.back_button.setCursor(Qt.CursorShape.PointingHandCursor)
         self.back_button.clicked.connect(self.go_back)
-        
-        # Next button
+    
+     # 🔹 NEW: Generate Report button
+        self.generate_report_button = QPushButton("Generate Final LCCA Report")
+        self.generate_report_button.setObjectName("bottom_nav_button")
+        self.generate_report_button.setFixedSize(230, 35)
+        self.generate_report_button.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.generate_report_button.clicked.connect(self.on_generate_report)
+        self.generate_report_button.setEnabled(False)
+    
+     # Next button
         self.next_button = QPushButton("Next")
         self.next_button.setObjectName("bottom_nav_button")
         self.next_button.setFixedSize(80, 35)
         self.next_button.setCursor(Qt.CursorShape.PointingHandCursor)
         self.next_button.clicked.connect(self.go_next)
-        
-        # Add buttons to layout
+    
         buttons_layout.addStretch(1)
         buttons_layout.addWidget(self.back_button)
+        buttons_layout.addWidget(self.generate_report_button)  # 👈 NEW
         buttons_layout.addWidget(self.next_button)
         buttons_layout.addStretch(1)
-        
+    
         return buttons_widget
 
     def _build_bar_graph(self) -> QWidget:
@@ -1155,6 +1163,16 @@ class ResultsWidget(QWidget):
             self.current_page += 1
             self.update_page_display()
     
+    def on_generate_report(self):
+        """
+        Generate final LCCA report using saved module data.
+        """
+        try:
+            generate_final_report()
+            print(" Final LCCA Report generated successfully")
+        except Exception as e:
+            print(" Error generating report:", e)
+
     def go_back(self):
         """Handle back button click"""
         if self.current_page > 0:
@@ -1169,6 +1187,9 @@ class ResultsWidget(QWidget):
         # Update button states
         self.back_button.setEnabled(self.current_page > 0)
         self.next_button.setEnabled(self.current_page < self.max_page)
+        
+        self.generate_report_button.setEnabled(self.current_page == self.max_page)
+
         
         if self.current_page == 0:
             # Show initial 50-year graphs
