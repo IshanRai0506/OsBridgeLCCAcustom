@@ -1,104 +1,107 @@
+<!-- PROJECT BANNER -->
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/IshanRai0506/OsBridgeLCCAcustom/master/assets/osbridgelcca-banner.svg" width="100%" alt="OsBridgeLCCA project banner"/>
+
 # OsBridgeLCCA
 
-OsBridgeLCCA (Open Source Bridge Life Cycle Cost Assessment) is an open-source software for evaluating the life cycle costs of bridges. It provides a user-friendly interface for cost estimation, traffic analysis, emissions calculations, and financial assessment, supporting decision-making in bridge infrastructure projects.
+### Open-source bridge life-cycle cost assessment
 
-## Features
-- **Life Cycle Cost Analysis (LCCA)**: Calculate total costs over a bridge's lifespan.
-- **Traffic Analysis**: Assess vehicle impact and cost implications.
-- **Emissions Estimation**: Evaluate environmental impact.
-- **Data Visualization**: Generate plots and charts with Plotly.
-- **Report Generation**: Export results to PDF, Excel, and LaTeX reports.
-- **Cross-Platform**: Supports Windows, macOS, and Linux.
-- **Standalone & Web-Based**: Available as a PyQt desktop app and a React-based web application.
+OsBridgeLCCA is an open-source engineering application for evaluating bridge life-cycle costs. It brings together cost estimation, traffic analysis, emissions calculations, visualisation and financial assessment to support infrastructure decisions.
 
-## Technology Stack
+<p>
+  <img src="https://img.shields.io/badge/status-project-7C3AED?style=for-the-badge" alt="Project"/>
+  <img src="https://img.shields.io/badge/built%20with-Python-0EA5E9?style=for-the-badge" alt="Built with"/>
+</p>
 
-| Component       | Technology             |
-|----------------|------------------------|
-| **Backend**    | Django (REST API)      |
-| **Database**   | SQLite (desktop), PostgreSQL (web) |
-| **API**        | Django REST Framework  |
-| **Desktop UI** | PyQt5                  |
-| **Web UI**     | React.js               |
-| **Visualization** | Plotly, Matplotlib  |
-| **Reports**    | PyLaTeX                |
-| **Testing**    | pytest                 |
-| **Deployment** | Docker, Gunicorn       |
-| **Version Control** | GitHub            |
+</div>
 
-## Installation
+---
+
+## ✨ What it does
+
+<div>
+
+**01 / Life-cycle cost analysis**  
+Estimate costs across a bridge's lifespan.
+
+</div>
+<div>
+
+**02 / Traffic analysis**  
+Assess traffic-related impacts and cost implications.
+
+</div>
+<div>
+
+**03 / Emissions estimation**  
+Evaluate environmental impact.
+
+</div>
+<div>
+
+**04 / Visualisation**  
+Explore results with Plotly and Matplotlib.
+
+</div>
+<div>
+
+**05 / Report generation**  
+Export PDF, Excel and LaTeX reports.
+
+</div>
+<div>
+
+**06 / Multiple interfaces**  
+Includes PyQt desktop and React web interfaces.
+
+</div>
+
+## 🧰 Tech stack
+
+Python · Django · Django REST Framework · PyQt5 · React · Plotly · Matplotlib · PyLaTeX · pytest · Docker
+
+## 🚀 Getting started
 
 ### Prerequisites
-- **Miniconda** (Recommended for environment management)
-- **Python 3.9+**
-- **Git**
 
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/yourusername/OsBridgeLCCA.git
-cd OsBridgeLCCA
-```
+Python and the project dependencies are required.
 
-### 2️⃣ Set Up the Environment
-#### **For Linux/macOS**
-```sh
+### Installation
+
+```bash
+git clone https://github.com/IshanRai0506/OsBridgeLCCAcustom.git
+cd OsBridgeLCCAcustom
+# Recommended: create and activate a Conda environment
+# Then follow the platform-specific setup script:
+# Linux / macOS
 bash install.sh
-```
-
-#### **For Windows**
-```bat
+# Windows
 install.bat
 ```
 
-### 3️⃣ Verify Installation
-```sh
-python scripts/verify_installation.py
-```
 
-## Running the Application
+## 📝 Notes
 
-### 🖥️ **Running the Desktop Application**
-```sh
-python src/osbridgelcca/desktop/app.py
-```
+The repository README describes both desktop and web entry points. Follow the project's current install scripts and verify the environment before launching either interface.
 
-### 🌐 **Running the Web Application**
-#### **Start the Backend Server**
-```sh
-python src/osbridgelcca/backend/manage.py runserver
-```
-#### **Start the Frontend**
-```sh
-cd src/osbridgelcca/web
-npm install
-npm start
-```
 
-## Directory Structure
-```
-OsBridgeLCCA/
-|-- src/osbridgelcca  # Main source code
-|   |-- backend/  # Django backend
-|   |-- desktop/  # PyQt5 desktop app
-|   |-- web/  # React web app
-|   |-- core/  # Core logic for calculations
-|-- scripts/  # Utility scripts
-|-- tests/  # Unit & integration tests
-|-- docs/  # Documentation
-|-- LICENSE  # License file
-|-- README.md  # Project overview
-```
 
-## Contributing
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-branch`.
-3. Commit your changes: `git commit -m 'Add new feature'`.
-4. Push to your fork: `git push origin feature-branch`.
-5. Submit a pull request.
 
-## License
-This project is licensed under the MIT License.
 
-## Contact
-For queries or collaboration, contact: contact-osdag@fossee.in or raise an issue on GitHub.
 
+## 🤝 Contributing
+
+Ideas, bug reports and thoughtful improvements are welcome. Open an issue to discuss a change before submitting a pull request.
+
+## 👨‍💻 Maintainer
+
+**Ishan Rai** · [GitHub](https://github.com/IshanRai0506) · [LinkedIn](https://linkedin.com/in/ishanrai-tech)
+
+---
+
+<div align="center">
+
+*Built with curiosity. Improved one commit at a time.* ✨
+
+</div>
